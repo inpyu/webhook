@@ -14,5 +14,4 @@ public class WebhookController {
         System.out.println("user name : " + response.getRepository().getOwner().getUser());
         System.out.println("repository name : " + response.getRepository().getName());
     }
-
 }
