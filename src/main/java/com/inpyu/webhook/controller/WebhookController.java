@@ -10,8 +10,9 @@ public class WebhookController {
 
     @PostMapping("/webhook")
     public void parseWebhook(@RequestBody WebhookDto response){
-        System.out.println("ref : " + response.getHead().getRef());
-        System.out.println("repository url : " + response.getRepository().getOwner().getRepoUrl());
+        System.out.println("ref : " + response.getPullRequest().getHead().getRef());
+        System.out.println("user name : " + response.getRepository().getOwner().getUser());
+        System.out.println("repository name : " + response.getRepository().getName());
     }
 
 }
