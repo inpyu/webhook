@@ -26,10 +26,6 @@ public class WebhookDto {
         public static class Owner{
             @JsonProperty("repos_url")
             private String repoUrl;
-
-            public Owner(String repoUrl){
-                this.repoUrl = repoUrl;
-            }
         }
     }
 
