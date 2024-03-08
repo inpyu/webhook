@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class WebhookDto {
+    @JsonProperty("head")
     private Head head;
 
+    @JsonProperty("repository")
     private Repository repository;
 
     @Getter
