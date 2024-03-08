@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebhookController {
 
     @PostMapping("/webhook")
-    public void parseWebhook(@RequestBody WebhookDto.Repository response){
-        System.out.println("Github id : " + response.getId());
-        System.out.println("repository name : " + response.getRepoName());
-        System.out.println("repository clone url: " + response.getCloneUrl());
+    public void parseWebhook(@RequestBody WebhookDto response){
+        System.out.println("ref : " + response.getPullRequest().getHead().getRef());
+        System.out.println("user name : " + response.getRepository().getOwner().getUser());
+        System.out.println("repository name : " + response.getRepository().getName());
     }
-
 }
