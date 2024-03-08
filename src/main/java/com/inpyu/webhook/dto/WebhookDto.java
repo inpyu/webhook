@@ -4,25 +4,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @NoArgsConstructor
 public class WebhookDto {
+    private Head head;
+
+    private Repository repository;
+
+    @Getter
+    public static class Head{
+        private String ref;
+    }
+
 
     @Getter
     public static class Repository{
 
-        @JsonProperty("login")
-        private String id;
+        private Owner owner;
 
-        @JsonProperty("name")
-        private String repoName;
+        @Getter
+        public static class Owner{
+            @JsonProperty("repos_url")
+            private String repoUrl;
 
-        @JsonProperty("clone_url")
-        private String cloneUrl;
-
-        public Repository(String id, String repoName, String cloneUrl){
-            this.id = id;
-            this.repoName = repoName;
-            this.cloneUrl = cloneUrl;
+            public Owner(String repoUrl){
+                this.repoUrl = repoUrl;
+            }
         }
     }
 
