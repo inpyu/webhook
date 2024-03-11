@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WebhookController {
 
+    @PostMapping("/webhook/githubApp")
+    public void parseGithubWebhook(@RequestBody String data){
+        System.out.println("data : " + data);
+    }
+
     @PostMapping("/webhook")
     public void parseWebhook(@RequestBody WebhookDto response){
         System.out.println("ref : " + response.getPullRequest().getHead().getRef());
